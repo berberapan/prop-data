@@ -6,7 +6,6 @@ public class UserInput {
     private final String searchedTeamID;
     private long searchedFromDate;
 
-
     public UserInput() {
         var scanner = new Scanner(System.in);
 
@@ -44,5 +43,3 @@ public class UserInput {
         return searchedFromDate;
     }
 }
-
-
