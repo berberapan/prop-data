@@ -9,15 +9,15 @@ public class UserInput {
     public UserInput() {
         var scanner = new Scanner(System.in);
 
-        System.out.println("""
-                Put in the Team ID for the team you want to see stats for. E.g. 2163 for Team Liquid
-                Just put in the numbers and press Enter
+        System.out.print("""
+                Put in the Team ID for the team you want to see stats for. E.g. 2163 for Team Liquid.
+                Just put in the numbers and press Enter:
                 """);
         this.searchedTeamID = scanner.nextLine();
 
-        System.out.println("""
-                Put in from what date you want to search FROM. Please add in following format DD/MM/YYYY
+        System.out.print("""
                 Note that the further back you go the more time the search will take as API calls are restricted.
+                Put in from what date you want to search FROM. Please add in following format DD/MM/YYYY:
                 """);
         convertDateToUnix(scanner.nextLine());
     }

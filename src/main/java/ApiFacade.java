@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class ApiFacade {
-    OkHttpClient httpClient = new OkHttpClient();
+    private final OkHttpClient httpClient = new OkHttpClient();
 
     // https://docs.opendota.com/ API documentation.
     // {team_id}/matches needs adding for full call.
