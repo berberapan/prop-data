@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class UserInput {
     private final String searchedTeamID;
     private long searchedFromDate;
+    private final int selection;
 
     public UserInput() {
         var scanner = new Scanner(System.in);
@@ -20,6 +21,17 @@ public class UserInput {
                 Put in from what date you want to search FROM. Please add in following format DD/MM/YYYY:
                 """);
         convertDateToUnix(scanner.nextLine());
+
+        System.out.print("""
+                Enter 1 if you want just the stats without breakdown.
+                Enter 2 if you want stats and stats for in wins and losses.
+                Enter 3 if you want stats and stats for radiant vs dire.
+                """);
+        this.selection = scanner.nextInt();
+        if (selection > 3 || selection < 1) {
+            System.out.println("No valid option selected. Try again");
+            System.out.println();
+        }
     }
 
     private void convertDateToUnix(String input) {
