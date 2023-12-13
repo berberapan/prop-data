@@ -1,24 +1,13 @@
 import java.util.ArrayList;
 
 public class DataHandler {
-    private ArrayList<String> matches = new ArrayList<>();
-    private int strategy;
+    private ArrayList<MatchData> matches = new ArrayList<>();
+    private ArrayList<MatchData> subListA = new ArrayList<>();
+    private ArrayList<MatchData> subListB = new ArrayList<>();
 
-    public DataHandler(ArrayList<String> matches, int strategy) {
+    public DataHandler(ArrayList<MatchData> matches, MatchDivideStrategy strategy) {
         this.matches = matches;
-        this.strategy = strategy;
 
-        switch (strategy) {
-            case 1:
-                //basic stats
-                break;
-            case 2:
-                //win-loss
-                break;
-            case 3:
-                //radiant-dire
-                break;
-        }
 
         showData();
     }
@@ -26,4 +15,5 @@ public class DataHandler {
     public void showData() {
         System.out.println();
     }
+
 }

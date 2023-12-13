@@ -54,4 +54,8 @@ public class UserInput {
     public long getSearchedFromDate() {
         return searchedFromDate;
     }
+
+    public int getSelection() {
+        return selection;
+    }
 }

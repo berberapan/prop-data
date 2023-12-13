@@ -2,9 +2,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.JsonNode;
 
-import java.util.List;
-import java.util.Map;
-
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class MatchData {
     @JsonProperty("radiant_team_id")
@@ -33,6 +30,9 @@ public class MatchData {
 
     @JsonProperty("barracks_status_dire")
     private int direBarracks;
+
+    @JsonProperty("game_mode")
+    private int gameMode;
 
     public String getRadiantTeam() {
         return radiantTeam;
@@ -68,5 +68,9 @@ public class MatchData {
 
     public int getDireBarracks() {
         return direBarracks;
+    }
+
+    public int getGameMode() {
+        return gameMode;
     }
 }
