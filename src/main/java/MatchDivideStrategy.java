@@ -5,4 +5,6 @@ public interface MatchDivideStrategy {
                  ArrayList<MatchData> subListaA,
                  ArrayList<MatchData> subListaB,
                  String teamID);
+
+    void showData(ArrayList<MatchData> subListA, ArrayList<MatchData> subListB);
 }

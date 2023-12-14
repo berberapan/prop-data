@@ -20,4 +20,7 @@ public class WinLossStrategy implements MatchDivideStrategy {
             }
         }
     }
+    public void showData(ArrayList<MatchData> wins, ArrayList<MatchData> losses) {
+        System.out.println("PLACEHOLDER");
+    }
 }

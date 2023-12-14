@@ -18,4 +18,7 @@ public class DireRadiantStrategy implements MatchDivideStrategy {
             }
         }
     }
+    public void showData(ArrayList<MatchData> dire, ArrayList<MatchData> radiant) {
+        System.out.println("PLACEHOLDER");
+    }
 }

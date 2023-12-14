@@ -4,7 +4,6 @@ import okhttp3.OkHttpClient;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.util.ArrayList;
-import static java.lang.Thread.sleep;
 
 public class ApiFacade {
     private final OkHttpClient httpClient = new OkHttpClient();

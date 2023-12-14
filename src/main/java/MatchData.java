@@ -34,43 +34,34 @@ public class MatchData {
     @JsonProperty("game_mode")
     private int gameMode;
 
+    int convertBinaryTower(int total) {
+        String binString = Integer.toBinaryString(total);
+        String towerPositions = String.format("%11s", binString).replace(" ", "0");
+        return towerPositions.length() - towerPositions.replace("0", "").length();
+    }
+    int convertBinaryBarracks(int total) {
+        String binString = Integer.toBinaryString(total);
+        String barracksPositions = String.format("%6s", binString).replace(" ", "0");
+        return barracksPositions.length() - barracksPositions.replace("0", "").length();
+    }
     public String getRadiantTeam() {
         return radiantTeam;
     }
-
     public boolean isRadiantWin() {
         return radiantWin;
     }
-
-    public int getRadiantKillScore() {
-        return radiantKillScore;
-    }
-
-    public int getDireKillScore() {
-        return direKillScore;
-    }
-
-    public JsonNode getObjectives() {
-        return objectives;
-    }
-
-    public int getRadiantTowers() {
-        return radiantTowers;
-    }
-
-    public int getDireTowers() {
-        return direTowers;
-    }
-
-    public int getRadiantBarracks() {
-        return radiantBarracks;
-    }
-
-    public int getDireBarracks() {
-        return direBarracks;
-    }
-
     public int getGameMode() {
         return gameMode;
     }
+    public int getTotalTowers() {
+        return convertBinaryTower(this.radiantTowers) + convertBinaryTower(direTowers);
+    }
+    public int getTotalBarracks() {
+        return convertBinaryBarracks(this.radiantBarracks) + convertBinaryBarracks(this.direBarracks);
+    }
+    public int totalKills() {
+        return this.radiantKillScore + this.direKillScore;
+    }
+
+
 }

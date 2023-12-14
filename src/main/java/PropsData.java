@@ -1,6 +1,10 @@
+import java.util.ArrayList;
+
 public class PropsData {
 
     public static void main(String[] args) throws InterruptedException {
+        ArrayList<MatchData> subListA = new ArrayList<>();
+        ArrayList<MatchData> subListB = new ArrayList<>();
 
         var search = new UserInput();
         var facade = new ApiFacade();
@@ -14,6 +18,8 @@ public class PropsData {
             case 3 -> new DireRadiantStrategy();
             default -> throw new IllegalArgumentException("Incorrect values");
         };
-        var dataHandler = new DataHandler(matches, strategy, search.getSearchedTeamID());
+
+        strategy.sorting(matches, subListA,subListB, search.getSearchedTeamID());
+        strategy.showData(subListA, subListB);
     }
 }
