@@ -9,17 +9,20 @@ public class PropsData {
         var search = new UserInput();
         var facade = new ApiFacade();
 
-        var ListOfMatches = facade.getMatchHistory(search.getSearchedTeamID(), search.getSearchedFromDate());
+        String teamID = search.getSearchedTeamID();
+        long unixDate = search.getSearchedFromDate();
+
+        var ListOfMatches = facade.getMatchHistory(teamID, unixDate);
         var matches = facade.getIndividualMatches(ListOfMatches);
 
         MatchDivideStrategy strategy = switch (search.getSelection()) {
-            case 1 -> new BasicStrategy();
-            case 2 -> new WinLossStrategy();
-            case 3 -> new DireRadiantStrategy();
+            case 1 -> new BasicStrategy(teamID);
+            case 2 -> new WinLossStrategy(teamID);
+            case 3 -> new DireRadiantStrategy(teamID);
             default -> throw new IllegalArgumentException("Incorrect values");
         };
 
-        strategy.sorting(matches, subListA,subListB, search.getSearchedTeamID());
+        strategy.sorting(matches, subListA,subListB);
         strategy.showData(subListA, subListB);
     }
 }

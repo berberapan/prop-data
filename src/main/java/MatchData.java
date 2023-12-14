@@ -1,6 +1,7 @@
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.JsonNode;
+import java.util.Iterator;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class MatchData {
@@ -62,6 +63,28 @@ public class MatchData {
     public int totalKills() {
         return this.radiantKillScore + this.direKillScore;
     }
+    public boolean firstTowerRadiant() {
+        Iterator<JsonNode> objectiveList = objectives.iterator();
+        while (objectiveList.hasNext()) {
+            JsonNode objectiveNode = objectiveList.next();
+            String type = objectiveNode.path("type").asText();
+            String key = objectiveNode.path("key").asText();
+            if ("building_kill".equals(type) && key.contains("badguys")) {
+                return true;
+            }
+        } return false;
+    }
 
-
+    public int getTotalRoshan() {
+        int total = 0;
+        Iterator<JsonNode> objectiveList = objectives.iterator();
+        while (objectiveList.hasNext()) {
+            JsonNode objectiveNode = objectiveList.next();
+            String type = objectiveNode.path("type").asText();
+            if ("CHAT_MESSAGE_ROSHAN_KILL".equals(type)) {
+                total++;
+            }
+        }
+        return total;
+    }
 }

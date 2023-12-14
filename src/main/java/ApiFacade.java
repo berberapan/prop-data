@@ -40,10 +40,10 @@ public class ApiFacade {
         return listOfMatches;
     }
 
-    public ArrayList<MatchData> getIndividualMatches(ArrayList<MatchID> matchLista) throws InterruptedException {
+    public ArrayList<MatchData> getIndividualMatches(ArrayList<MatchID> matchList) throws InterruptedException {
         ArrayList<MatchData> advancedStatsMatchList = new ArrayList<>();
         int callCounter = 1;
-        for (MatchID match : matchLista) {
+        for (MatchID match : matchList) {
             // The API got a rate limit for the free version.
             if (callCounter % 30 == 0) {
                 Thread.sleep(60000);
