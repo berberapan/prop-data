@@ -20,7 +20,7 @@ public class UserInput {
         System.out.print("""
                 
                 Note that the further back you go the more time the search will take as API calls are restricted.
-                Put in from what date you want to search FROM. Please add in following format DD/MM/YYYY:
+                Put in what date you want to search FROM. Please add in following format DD/MM/YYYY:
                 """);
         convertDateToUnix(scanner.nextLine());
 
